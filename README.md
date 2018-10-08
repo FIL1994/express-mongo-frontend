@@ -1,6 +1,7 @@
 # express-mongo-frontend
-Front-end for express-mongo using Reach UI and create-react-app
+Front-end for [express-mongo](https://github.com/FIL1994/express-mongo) using Reach UI and create-react-app
 
+<hr/>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
