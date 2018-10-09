@@ -1,5 +1,5 @@
 # express-mongo-frontend
-Front-end for [express-mongo](https://github.com/FIL1994/express-mongo) using Reach UI and create-react-app
+Front-end for [express-mongo](https://github.com/FIL1994/express-mongo) using [Grommet](https://github.com/grommet/grommet) and create-react-app
 
 <hr/>
 
