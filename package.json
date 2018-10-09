@@ -5,6 +5,8 @@
   "dependencies": {
     "@reach/alert": "^0.1.1",
     "@reach/router": "^1.2.1",
+    "@reach/window-size": "^0.1.1",
+    "grommet": "^1.11.0",
     "node-sass": "^4.9.3",
     "npm": "^6.4.1",
     "react": "^16.5.2",
