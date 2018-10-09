@@ -8,6 +8,7 @@ import Section from "grommet/components/Section";
 import Box from "grommet/components/Box";
 
 import Link from "./components/common/Link";
+import Auth from "./components/services/Auth";
 
 const appName = "MyApp";
 
@@ -15,6 +16,7 @@ class App extends Component {
   render() {
     return (
       <Box flex full>
+        <Auth />
         <Header colorIndex="neutral-4-t" pad="small" fixed={false}>
           <Grommet style={{ marginRight: 15, padding: "2px 8px" }}>
             {appName}
@@ -24,7 +26,7 @@ class App extends Component {
             <Link to="/">Logout</Link>
           </Menu>
         </Header>
-        <Article >
+        <Article flex pad="medium">
           <main>
             <Section>My Section</Section>
           </main>

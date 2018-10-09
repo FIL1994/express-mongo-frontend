@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Box from "grommet/components/Box";
 import LoginForm from "grommet/components/LoginForm";
 import axios from "axios";
+import { injectState } from "freactal";
+import { navigate } from "@reach/router";
 
 import "./login.scss";
 
@@ -18,6 +20,8 @@ class Login extends Component {
       });
 
       const { access_token } = res.data;
+      this.props.effects.setToken(access_token);
+      navigate("/page");
     } catch (e) {
       this.setState({ error: "invalid credentials" });
     }
@@ -45,4 +49,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default injectState(Login);
