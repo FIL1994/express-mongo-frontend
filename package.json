@@ -6,6 +6,7 @@
     "@reach/alert": "^0.1.1",
     "@reach/router": "^1.2.1",
     "@reach/window-size": "^0.1.1",
+    "axios": "^0.18.0",
     "freactal": "^2.0.3",
     "grommet": "^1.11.0",
     "localforage": "^1.7.2",
