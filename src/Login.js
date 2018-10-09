@@ -38,7 +38,7 @@ class Login extends Component {
         align="center"
       >
         <LoginForm
-          title="My App"
+          title="New App"
           textAlign="left"
           usernameType="text"
           onSubmit={this.onSubmit}
