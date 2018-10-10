@@ -5,9 +5,7 @@ import Section from "grommet/components/Section";
 import { formatDate } from "../../../helpers/dates";
 
 const UserInfo = props => {
-  console.log("state", props.state);
   const { user } = props.state;
-  console.log("user", user);
 
   return (
     <Section>
