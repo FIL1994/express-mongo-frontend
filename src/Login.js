@@ -19,9 +19,9 @@ class Login extends Component {
         password
       });
 
-      const { access_token } = res.data;
-      this.props.effects.setToken(access_token);
-      navigate("/page");
+      const { access_token, user } = res.data;
+      this.props.effects.onLogin({ access_token, user });
+      navigate("/dash");
     } catch (e) {
       this.setState({ error: "invalid credentials" });
     }
@@ -38,7 +38,7 @@ class Login extends Component {
         align="center"
       >
         <LoginForm
-          title="My App"
+          title="New App"
           textAlign="left"
           usernameType="text"
           onSubmit={this.onSubmit}

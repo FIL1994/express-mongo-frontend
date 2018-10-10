@@ -1,14 +1,15 @@
 import React, { Component } from "react";
+import { Router } from "@reach/router";
 import Header from "grommet/components/Header";
 import Article from "grommet/components/Article";
-import Menu from "grommet/components/Menu";
+
 import Grommet from "grommet/components/Grommet";
 import Footer from "grommet/components/Footer";
-import Section from "grommet/components/Section";
 import Box from "grommet/components/Box";
 
-import Link from "./components/common/Link";
+import HeaderNav from "./components/header-nav/HeaderNav";
 import Auth from "./components/services/Auth";
+import Dashboard from "./components/dashboard/Dashboard";
 
 const appName = "MyApp";
 
@@ -21,14 +22,13 @@ class App extends Component {
           <Grommet style={{ marginRight: 15, padding: "2px 8px" }}>
             {appName}
           </Grommet>
-          <Menu direction="row">
-            <Link to="/header">Header</Link>
-            <Link to="/">Logout</Link>
-          </Menu>
+          <HeaderNav />
         </Header>
         <Article flex pad="medium">
           <main>
-            <Section>My Section</Section>
+            <Router>
+              <Dashboard path="/dash" />
+            </Router>
           </main>
         </Article>
         <Footer

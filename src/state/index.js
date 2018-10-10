@@ -1,13 +1,13 @@
 import { provideState, update, mergeIntoState } from "freactal";
-import { stat } from "fs";
 
 const wrapComponentWithState = provideState({
   initialState: () => ({
-    token: ""
+    token: "",
+    user: {}
   }),
   effects: {
     getState: () => state => state,
-    setToken: (effects, token) => state => Object.assign({}, state, { token })
+    onLogin: (effects, {token, user}) => state => Object.assign({}, state, { token, user })
   }
 });
 
