@@ -1,12 +1,16 @@
-import { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { injectState } from "freactal";
-import { redirectTo } from "@reach/router"
+import { redirectTo } from "@reach/router";
 
 class Auth extends Component {
   render() {
-    console.log("Auth", this.props.state.token)
+    const { isInitialized, token } = this.props.state;
 
-    return null;
+    if (isInitialized && !token) {
+      redirectTo("/");
+    }
+
+    return <Fragment>{isInitialized && this.props.children}</Fragment>;
   }
 }
 

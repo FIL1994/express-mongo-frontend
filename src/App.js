@@ -18,29 +18,30 @@ class App extends Component {
   render() {
     return (
       <Box flex full>
-        <Auth />
-        <Header colorIndex="neutral-4-t" pad="small" fixed={false}>
-          <Grommet style={{ marginRight: 15, padding: "2px 8px" }}>
+        <Auth>
+          <Header colorIndex="neutral-4-t" pad="small" fixed={false}>
+            <Grommet style={{ marginRight: 15, padding: "2px 8px" }}>
+              {appName}
+            </Grommet>
+            <HeaderNav />
+          </Header>
+          <Article flex pad="medium">
+            <main>
+              <Router>
+                <Dashboard path="/dash" />
+                <Posts path="/posts" />
+              </Router>
+            </main>
+          </Article>
+          <Footer
+            primary
+            colorIndex="neutral-4-t"
+            direction="column"
+            pad="medium"
+          >
             {appName}
-          </Grommet>
-          <HeaderNav />
-        </Header>
-        <Article flex pad="medium">
-          <main>
-            <Router>
-              <Dashboard path="/dash" />
-              <Posts path="/posts" />
-            </Router>
-          </main>
-        </Article>
-        <Footer
-          primary
-          colorIndex="neutral-4-t"
-          direction="column"
-          pad="medium"
-        >
-          {appName}
-        </Footer>
+          </Footer>
+        </Auth>
       </Box>
     );
   }

@@ -20,11 +20,13 @@ const wrapComponentWithState = provideState({
       );
 
       return Promise.resolve(state => {
-        return { ...state, isInitialized: true, user: user.data };
+        return { ...state, isInitialized: true, user: user.data, token };
       });
     },
     onLogin: (effects, { access_token: token, user }) => state => {
       localForage.setItem("token", token);
+      
+      axios.defaults.headers.common.Authorization = "Bearer " + token;
 
       return Object.assign({}, state, { token, user });
     },
