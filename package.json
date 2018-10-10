@@ -11,6 +11,7 @@
     "grommet": "^1.11.0",
     "localforage": "^1.7.2",
     "lodash": "^4.17.11",
+    "moment": "^2.22.2",
     "node-sass": "^4.9.3",
     "npm": "^6.4.1",
     "react": "^16.5.2",
