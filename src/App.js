@@ -10,6 +10,7 @@ import Box from "grommet/components/Box";
 import HeaderNav from "./components/header-nav/HeaderNav";
 import Auth from "./components/services/Auth";
 import Dashboard from "./components/dashboard/Dashboard";
+import Posts from "./components/posts/Posts";
 
 const appName = "MyApp";
 
@@ -28,6 +29,7 @@ class App extends Component {
           <main>
             <Router>
               <Dashboard path="/dash" />
+              <Posts path="/posts" />
             </Router>
           </main>
         </Article>
