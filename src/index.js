@@ -5,7 +5,7 @@ import GrommetApp from "grommet/components/App";
 import "grommet/grommet.min.css";
 
 import wrapComponentWithState from "./state";
-import Login from "./Login";
+import Login from "./components/login/Login";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "./index.scss";
