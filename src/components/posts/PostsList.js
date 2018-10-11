@@ -18,13 +18,17 @@ class PostsList extends Component {
   render() {
     return (
       this.state.posts.length > 0 && (
-        <Columns responsive>
+        <Columns maxCount={1} justify="start" responsive>
           {this.state.posts.map(post => (
             <Card
+              style={{
+                margin: 5
+              }}
+              colorIndex="light-2"
               key={post._id}
-              heading={post.title}
               description={post.content}
               textSize="small"
+              pad="small"
             />
           ))}
         </Columns>

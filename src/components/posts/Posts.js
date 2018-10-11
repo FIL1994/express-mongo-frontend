@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Section from "grommet/components/Section";
+import NewPost from "./NewPost";
 import PostsList from "./PostsList";
 
 class Posts extends Component {
@@ -7,6 +8,7 @@ class Posts extends Component {
     return (
       <Section>
         <h2>Posts</h2>
+        <NewPost />
         <PostsList />
       </Section>
     );
