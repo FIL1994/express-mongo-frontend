@@ -8,8 +8,8 @@ class Posts extends Component {
     return (
       <Section>
         <h2>Posts</h2>
-        <NewPost />
-        <PostsList />
+        <NewPost onNewPost={() => this.postList.getPosts(true)} />
+        <PostsList ref={postList => (this.postList = postList)} />
       </Section>
     );
   }
