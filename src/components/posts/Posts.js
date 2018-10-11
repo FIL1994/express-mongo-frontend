@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Section from "grommet/components/Section";
+import Card from "grommet/components/Card";
+import Columns from "grommet/components/Columns";
 
 class Posts extends Component {
   state = {
@@ -18,6 +20,18 @@ class Posts extends Component {
     return (
       <Section>
         <h2>Posts</h2>
+        {this.state.posts.length > 0 && (
+          <Columns responsive>
+            {this.state.posts.map(post => (
+              <Card
+                key={post._id}
+                heading={post.title}
+                description={post.content}
+                textSize="small"
+              />
+            ))}
+          </Columns>
+        )}
       </Section>
     );
   }
