@@ -8,6 +8,7 @@ import wrapComponentWithState from "./state";
 import Login from "./components/login/Login";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import "./styles";
 import "./index.scss";
 
 const MyApp = wrapComponentWithState(() => (

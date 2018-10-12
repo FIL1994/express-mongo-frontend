@@ -45,12 +45,15 @@ class PostsList extends Component {
                 colorIndex="light-2"
                 key={post._id}
               >
-                <Avatar
-                  size={50}
-                  round
-                  name={post.author.username}
-                />
-                <p>{post.content}</p>
+                <div className="post">
+                  <div>
+                    <Avatar size={50} round name={post.author.username} />
+                  </div>
+                  <div>
+                    <b>{post.author.username}</b>
+                    <p>{post.content}</p>
+                  </div>
+                </div>
               </Card>
             ))}
           </Columns>

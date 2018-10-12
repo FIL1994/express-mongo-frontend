@@ -3,6 +3,10 @@ import { injectState } from "freactal";
 import { redirectTo } from "@reach/router";
 
 class Auth extends Component {
+  componentDidCatch(error, info) {
+    console.warn("Error from Auth", error, info);
+  }
+
   render() {
     const { isInitialized, token } = this.props.state;
 
@@ -10,7 +14,9 @@ class Auth extends Component {
       redirectTo("/");
     }
 
-    return <Fragment>{isInitialized && this.props.children}</Fragment>;
+    return (
+      <Fragment>{(isInitialized && this.props.children) || null}</Fragment>
+    );
   }
 }
 

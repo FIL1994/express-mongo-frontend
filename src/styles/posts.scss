@@ -1,0 +1,10 @@
+.post {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 15px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.post p:not(.grommetux-paragraph) {
+  margin-top: 0px;
+}

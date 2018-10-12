@@ -8,6 +8,7 @@
     "@reach/window-size": "^0.1.1",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
+    "date-fns": "^2.0.0-alpha.22",
     "freactal": "^2.0.3",
     "grommet": "^1.11.0",
     "localforage": "^1.7.2",
