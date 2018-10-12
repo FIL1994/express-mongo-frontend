@@ -3,6 +3,9 @@ import axios from "axios";
 import Card from "grommet/components/Card";
 import Columns from "grommet/components/Columns";
 import Avatar from "react-avatar";
+import { formatDistance } from "date-fns/esm";
+
+import { parseDate2 } from "../../helpers/dates";
 
 class PostsList extends Component {
   state = {
@@ -51,7 +54,15 @@ class PostsList extends Component {
                   </div>
                   <div>
                     <b>{post.author.username}</b>
+                  </div>
+                  <div>
                     <p>{post.content}</p>
+                  </div>
+                  <div>
+                    {formatDistance(parseDate2(post.createdAt), new Date(), {
+                      addSuffix: true,
+                      includeSeconds: true
+                    })}
                   </div>
                 </div>
               </Card>

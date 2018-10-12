@@ -5,7 +5,7 @@ import axios from "axios";
 class NewPost extends Component {
   state = {
     post: "",
-    isSendingPost: true
+    isSendingPost: false
   };
 
   onChange = event => {
