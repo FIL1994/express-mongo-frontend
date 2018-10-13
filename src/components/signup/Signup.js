@@ -47,14 +47,10 @@ class Signup extends Component {
     if (!this.isFormValid()) return;
 
     const { username, password } = this.state;
-    const signupResponse = await axios.post(
-      process.env.REACT_APP_API_URL + "signup",
-      {
-        username,
-        password
-      }
-    );
-    console.log("signed up", signupResponse.data);
+    await axios.post(process.env.REACT_APP_API_URL + "signup", {
+      username,
+      password
+    });
 
     const loginResponse = await axios.post(
       process.env.REACT_APP_API_URL + "login",

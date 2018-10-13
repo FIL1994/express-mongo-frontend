@@ -5,7 +5,7 @@ import Columns from "grommet/components/Columns";
 import Avatar from "react-avatar";
 import { formatDistance } from "date-fns/esm";
 
-import { parseDate2 } from "../../helpers/dates";
+import { parseDate } from "../../helpers/dates";
 
 class PostsList extends Component {
   state = {
@@ -59,7 +59,7 @@ class PostsList extends Component {
                     <p>{post.content}</p>
                   </div>
                   <div>
-                    {formatDistance(parseDate2(post.createdAt), new Date(), {
+                    {formatDistance(parseDate(post.createdAt), new Date(), {
                       addSuffix: true,
                       includeSeconds: true
                     })}

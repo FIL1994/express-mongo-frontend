@@ -2,7 +2,7 @@ import { parse } from "date-fns/esm";
 
 export const MONGOOSE_FORMAT = "YYYY-MM-DDThh:mm:ssZ";
 
-export const parseDate2 = date => {
+export const parseDate = date => {
   if (date === undefined) {
     throw new Error("date is undefined");
   }

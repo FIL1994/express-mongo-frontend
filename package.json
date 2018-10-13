@@ -11,6 +11,7 @@
     "date-fns": "^2.0.0-alpha.22",
     "freactal": "^2.0.3",
     "grommet": "^1.11.0",
+    "immutable": "^3.8.2",
     "localforage": "^1.7.2",
     "lodash": "^4.17.11",
     "moment": "^2.22.2",
@@ -19,7 +20,9 @@
     "react": "^16.5.2",
     "react-avatar": "^3.4.6",
     "react-dom": "^16.5.2",
-    "react-scripts": "2.0.4"
+    "react-scripts": "2.0.4",
+    "slate": "^0.42.2",
+    "slate-react": "^0.19.3"
   },
   "scripts": {
     "start": "react-scripts start",
