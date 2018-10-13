@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Box from "grommet/components/Box";
 import LoginForm from "grommet/components/LoginForm";
+import Link from "../common/Link";
 import axios from "axios";
 import { injectState } from "freactal";
 import { navigate } from "@reach/router";
@@ -37,13 +38,18 @@ class Login extends Component {
         justify="center"
         align="center"
       >
-        <LoginForm
-          title="New App"
-          textAlign="left"
-          usernameType="text"
-          onSubmit={this.onSubmit}
-          errors={[this.state.error]}
-        />
+        <Box colorIndex="light-2" justify="center" align="center" pad="medium">
+          <LoginForm
+            title="New App"
+            textAlign="left"
+            usernameType="text"
+            onSubmit={this.onSubmit}
+            errors={[this.state.error]}
+          />
+          <Link className="form-link" to="/signup">
+            Don't have an account? Signup here.
+          </Link>
+        </Box>
       </Box>
     );
   }

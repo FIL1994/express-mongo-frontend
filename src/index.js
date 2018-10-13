@@ -6,6 +6,7 @@ import "grommet/grommet.min.css";
 
 import wrapComponentWithState from "./state";
 import Login from "./components/login/Login";
+import Signup from "./components/signup/Signup";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "./styles";
@@ -15,6 +16,7 @@ const MyApp = wrapComponentWithState(() => (
   <GrommetApp centered={false}>
     <Router>
       <Login path="/" />
+      <Signup path="/signup" />
       <App path="*" />
     </Router>
   </GrommetApp>
