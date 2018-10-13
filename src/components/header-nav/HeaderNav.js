@@ -10,6 +10,7 @@ const HeaderNav = props => (
   <Menu direction="row">
     <Link to="/dash">Dashboard</Link>
     <Link to="/posts">Posts</Link>
+    <Link to="/notes">Notes</Link>
     <Anchor
       onClick={() => {
         console.log("props", props);

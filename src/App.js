@@ -11,6 +11,7 @@ import HeaderNav from "./components/header-nav/HeaderNav";
 import Auth from "./components/services/Auth";
 import Dashboard from "./components/dashboard/Dashboard";
 import Posts from "./components/posts/Posts";
+import Notes from "./components/notes/Notes";
 
 const appName = "MyApp";
 
@@ -30,6 +31,7 @@ class App extends Component {
               <Router>
                 <Dashboard path="/dash" />
                 <Posts path="/posts" />
+                <Notes path="/notes" />
               </Router>
             </main>
           </Article>
