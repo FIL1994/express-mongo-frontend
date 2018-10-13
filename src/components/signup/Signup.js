@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Box from "grommet/components/Box";
 import Heading from "grommet/components/Heading";
-import PasswordInput from "grommet/components/PasswordInput";
 import TextInput from "grommet/components/TextInput";
 import FormField from "grommet/components/FormField";
 import FormFields from "grommet/components/FormFields";
@@ -10,6 +9,7 @@ import Form from "grommet/components/Form";
 import Header from "grommet/components/Header";
 import Footer from "grommet/components/Footer";
 import axios from "axios";
+import { injectState } from "freactal";
 import { navigate } from "@reach/router";
 
 import Link from "../common/Link";
@@ -26,8 +26,47 @@ class Signup extends Component {
     document.getElementById("username-field").focus();
   }
 
-  onSignup = e => {
+  onChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  doPasswordsMatch = () => this.state.password === this.state.verifyPassword;
+
+  isFormValid = () => {
+    if (!this.doPasswordsMatch()) return false;
+    if (this.state.username.length < 1 || this.state.password.length < 1) {
+      return false;
+    }
+    return true;
+  };
+
+  onSignup = async e => {
     e.preventDefault();
+    if (!this.isFormValid()) return;
+
+    const { username, password } = this.state;
+    const signupResponse = await axios.post(
+      process.env.REACT_APP_API_URL + "signup",
+      {
+        username,
+        password
+      }
+    );
+    console.log("signed up", signupResponse.data);
+
+    const loginResponse = await axios.post(
+      process.env.REACT_APP_API_URL + "login",
+      {
+        username,
+        password
+      }
+    );
+
+    const { access_token, user } = loginResponse.data;
+    await this.props.effects.onLogin({ access_token, user });
+    navigate("/dash");
   };
 
   render() {
@@ -49,20 +88,35 @@ class Signup extends Component {
                   style={{
                     width: "100%"
                   }}
-                  label="Username"
+                  name="username"
+                  value={this.state.username}
+                  onDOMChange={this.onChange}
                 />
               </FormField>
               <FormField label="Password">
-                <PasswordInput />
+                <TextInput
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  onDOMChange={this.onChange}
+                />
+              </FormField>
+              <FormField label="Verify Password">
+                <TextInput
+                  type="password"
+                  name="verifyPassword"
+                  value={this.state.verifyPassword}
+                  onDOMChange={this.onChange}
+                />
               </FormField>
             </FormFields>
             <Footer pad={{ vertical: "medium" }}>
               <Button
-                type="submit"
+                type="button"
                 primary
                 fill
                 label="Signup"
-                onClick={this.onSignup}
+                onClick={this.isFormValid() ? this.onSignup : null}
               />
             </Footer>
           </Form>
@@ -75,4 +129,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+export default injectState(Signup);
