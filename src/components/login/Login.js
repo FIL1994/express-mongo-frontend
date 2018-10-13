@@ -20,7 +20,7 @@ class Login extends Component {
       });
 
       const { access_token, user } = res.data;
-      this.props.effects.onLogin({ access_token, user });
+      await this.props.effects.onLogin({ access_token, user });
       navigate("/dash");
     } catch (e) {
       this.setState({ error: "invalid credentials" });
