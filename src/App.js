@@ -29,9 +29,9 @@ class App extends Component {
           <Article flex pad="medium">
             <main>
               <Router>
-                <Dashboard path="/dash" />
-                <Posts path="/posts" />
-                <Notes path="/notes" />
+                <Dashboard path="dash" />
+                <Posts path="posts" />
+                <Notes path="notes/*" />
               </Router>
             </main>
           </Article>

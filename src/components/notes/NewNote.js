@@ -6,6 +6,8 @@ import Button from "grommet/components/Button";
 import { Editor } from "slate-react";
 import { Value } from "slate";
 
+import Link from "../common/Link";
+
 // Create our initial value...
 const initialValue = Value.fromJSON({
   document: {
@@ -63,6 +65,9 @@ class NewNote extends Component {
   render() {
     return (
       <Fragment>
+        <div style={{ marginBottom: 30 }}>
+          <Link to="/notes">Back to Notes</Link>
+        </div>
         <FormField label="title">
           <TextInput
             name="title"
