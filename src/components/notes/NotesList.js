@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
-import Card from "grommet/components/Card";
-import Columns from "grommet/components/Columns";
 import Avatar from "react-avatar";
 
 import Link from "../common/Link";
 import { parseDate } from "../../helpers/dates";
+
+const Card = props => <div>{props.children}</div>;
 
 class NotesList extends Component {
   state = {
@@ -31,7 +31,7 @@ class NotesList extends Component {
           <Link to="create">Create Note</Link>
         </div>
         {this.state.notes.length > 0 && (
-          <Columns maxCount={1} justify="start" responsive>
+          <div>
             {this.state.notes.map(note => (
               <div key={note._id}>
                 {note.title}
@@ -39,7 +39,7 @@ class NotesList extends Component {
                 {note.content}
               </div>
             ))}
-          </Columns>
+          </div>
         )}
       </Fragment>
     );

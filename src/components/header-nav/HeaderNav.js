@@ -1,13 +1,12 @@
 import React from "react";
 import { injectState } from "freactal";
 import { navigate } from "@reach/router";
-import Menu from "grommet/components/Menu";
-import Anchor from "grommet/components/Anchor";
+import { Anchor } from "grommet";
 
 import Link from "../common/Link";
 
 const HeaderNav = props => (
-  <Menu direction="row">
+  <menu>
     <Link to="/dash">Dashboard</Link>
     <Link to="/posts">Posts</Link>
     <Link to="/notes">Notes</Link>
@@ -20,7 +19,7 @@ const HeaderNav = props => (
     >
       Logout
     </Anchor>
-  </Menu>
+  </menu>
 );
 
 export default injectState(HeaderNav);

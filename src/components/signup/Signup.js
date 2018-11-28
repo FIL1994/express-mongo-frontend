@@ -1,13 +1,6 @@
 import React, { Component } from "react";
 import Box from "grommet/components/Box";
-import Heading from "grommet/components/Heading";
-import TextInput from "grommet/components/TextInput";
-import FormField from "grommet/components/FormField";
-import FormFields from "grommet/components/FormFields";
-import Button from "grommet/components/Button";
-import Form from "grommet/components/Form";
-import Header from "grommet/components/Header";
-import Footer from "grommet/components/Footer";
+import { Heading, TextInput, FormField, Button } from "grommet";
 import axios from "axios";
 import { injectState } from "freactal";
 import { navigate } from "@reach/router";
@@ -69,15 +62,13 @@ class Signup extends Component {
     return (
       <Box flex full colorIndex="neutral-4-t" justify="center" align="center">
         <Box colorIndex="light-2" justify="center" align="center" pad="medium">
-          <Form onSubmit={this.onSignup} pad="medium">
+          <form onSubmit={this.onSignup}>
             <Box align="center">
-              <Header>
-                <Heading tag="h1" strong>
-                  New App
-                </Heading>
-              </Header>
+              <header>
+                <Heading level="1">New App</Heading>
+              </header>
             </Box>
-            <FormFields pad={{ vertical: "medium" }}>
+            <div>
               <FormField label="Username">
                 <TextInput
                   id="username-field"
@@ -105,8 +96,8 @@ class Signup extends Component {
                   onDOMChange={this.onChange}
                 />
               </FormField>
-            </FormFields>
-            <Footer pad={{ vertical: "medium" }}>
+            </div>
+            <footer>
               <Button
                 type="button"
                 primary
@@ -114,8 +105,8 @@ class Signup extends Component {
                 label="Signup"
                 onClick={this.isFormValid() ? this.onSignup : null}
               />
-            </Footer>
-          </Form>
+            </footer>
+          </form>
           <Link className="form-link" to="/">
             Already have an account? Login here.
           </Link>

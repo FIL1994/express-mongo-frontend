@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Box from "grommet/components/Box";
-import LoginForm from "grommet/components/LoginForm";
+import { Box, TextInput, Button } from "grommet";
 import Link from "../common/Link";
 import axios from "axios";
 import { injectState } from "freactal";
@@ -10,10 +9,14 @@ import "./login.scss";
 
 class Login extends Component {
   state = {
+    username: "",
+    password: "",
     error: ""
   };
 
-  onSubmit = async ({ username, password, rememberMe }) => {
+  onSubmit = async () => {
+    const { username, password } = this.state;
+
     try {
       const res = await axios.post(process.env.REACT_APP_API_URL + "login", {
         username,
@@ -39,13 +42,29 @@ class Login extends Component {
         align="center"
       >
         <Box colorIndex="light-2" justify="center" align="center" pad="medium">
-          <LoginForm
-            title="New App"
-            textAlign="left"
-            usernameType="text"
-            onSubmit={this.onSubmit}
-            errors={[this.state.error]}
-          />
+          New App
+          <form>
+            Username
+            <TextInput
+              name="username"
+              onChange={e => {
+                this.setState({ username: e.target.value });
+              }}
+              value={this.state.username}
+            />
+            Password
+            <TextInput
+              name="password"
+              onChange={e => {
+                this.setState({ password: e.target.value });
+              }}
+              value={this.state.password}
+            />
+            <Button label="Login" onClick={this.onSubmit} />
+          </form>
+          {this.state.error && (
+            <div style={{ color: "red" }}>{this.state.error}</div>
+          )}
           <Link className="form-link" to="/signup">
             Don't have an account? Signup here.
           </Link>

@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router } from "@reach/router";
-import GrommetApp from "grommet/components/App";
-import "grommet/grommet.min.css";
+import { Grommet } from "grommet";
 
 import wrapComponentWithState from "./state";
 import Login from "./components/login/Login";
@@ -13,13 +12,13 @@ import "./styles";
 import "./index.scss";
 
 const MyApp = wrapComponentWithState(() => (
-  <GrommetApp centered={false}>
+  <Grommet centered={false}>
     <Router>
       <Login path="/" />
       <Signup path="/signup" />
       <App path="*" />
     </Router>
-  </GrommetApp>
+  </Grommet>
 ));
 
 ReactDOM.render(<MyApp />, document.getElementById("root"));
