@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Box, TextInput, Button } from "grommet";
+import { Box, TextInput, Button, Heading } from "grommet";
 import Link from "../common/Link";
 import axios from "axios";
 import { injectState } from "freactal";
@@ -14,7 +14,12 @@ class Login extends Component {
     error: ""
   };
 
-  onSubmit = async () => {
+  componentDidMount() {
+    document.body.style.backgroundColor = "#525a76";
+  }
+
+  onSubmit = async e => {
+    e.preventDefault();
     const { username, password } = this.state;
 
     try {
@@ -33,17 +38,12 @@ class Login extends Component {
 
   render() {
     return (
-      <Box
-        id="login-form"
-        flex
-        full
-        colorIndex="neutral-4-t"
-        justify="center"
-        align="center"
-      >
-        <Box colorIndex="light-2" justify="center" align="center" pad="medium">
-          New App
-          <form>
+      <Box id="login-form" flex full justify="center" align="center">
+        <Box background="light-2" justify="center" align="center" pad="large">
+          <Heading level="2" margin="small">
+            New App
+          </Heading>
+          <form onSubmit={this.onSubmit}>
             Username
             <TextInput
               name="username"
@@ -60,7 +60,17 @@ class Login extends Component {
               }}
               value={this.state.password}
             />
-            <Button label="Login" onClick={this.onSubmit} />
+            <Button
+              type="submit"
+              primary
+              label="Login"
+              onClick={this.onSubmit}
+              style={{
+                marginTop: 15,
+                marginBottom: 15,
+                width: "100%"
+              }}
+            />
           </form>
           {this.state.error && (
             <div style={{ color: "red" }}>{this.state.error}</div>
