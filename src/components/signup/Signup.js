@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Box from "grommet/components/Box";
-import { Heading, TextInput, FormField, Button } from "grommet";
+import { Box, TextInput, Button, Heading } from "grommet";
 import axios from "axios";
 import { injectState } from "freactal";
 import { navigate } from "@reach/router";
@@ -16,14 +15,9 @@ class Signup extends Component {
   };
 
   componentDidMount() {
+    document.body.style.backgroundColor = "#525a76";
     document.getElementById("username-field").focus();
   }
-
-  onChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
 
   doPasswordsMatch = () => this.state.password === this.state.verifyPassword;
 
@@ -60,42 +54,40 @@ class Signup extends Component {
 
   render() {
     return (
-      <Box flex full colorIndex="neutral-4-t" justify="center" align="center">
-        <Box colorIndex="light-2" justify="center" align="center" pad="medium">
+      <Box flex full justify="center" align="center">
+        <Box background="light-2" justify="center" align="center" pad="large">
+          <Heading level="2" margin="small">
+            New App
+          </Heading>
           <form onSubmit={this.onSignup}>
-            <Box align="center">
-              <header>
-                <Heading level="1">New App</Heading>
-              </header>
-            </Box>
             <div>
-              <FormField label="Username">
-                <TextInput
-                  id="username-field"
-                  style={{
-                    width: "100%"
-                  }}
-                  name="username"
-                  value={this.state.username}
-                  onDOMChange={this.onChange}
-                />
-              </FormField>
-              <FormField label="Password">
-                <TextInput
-                  type="password"
-                  name="password"
-                  value={this.state.password}
-                  onDOMChange={this.onChange}
-                />
-              </FormField>
-              <FormField label="Verify Password">
-                <TextInput
-                  type="password"
-                  name="verifyPassword"
-                  value={this.state.verifyPassword}
-                  onDOMChange={this.onChange}
-                />
-              </FormField>
+              Username
+              <TextInput
+                id="username-field"
+                name="username"
+                value={this.state.username}
+                onChange={e => {
+                  this.setState({ username: e.target.value });
+                }}
+              />
+              Password
+              <TextInput
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={e => {
+                  this.setState({ password: e.target.value });
+                }}
+              />
+              Verify Password
+              <TextInput
+                type="password"
+                name="verifyPassword"
+                value={this.state.verifyPassword}
+                onChange={e => {
+                  this.setState({ verifyPassword: e.target.value });
+                }}
+              />
             </div>
             <footer>
               <Button
@@ -104,6 +96,10 @@ class Signup extends Component {
                 fill
                 label="Signup"
                 onClick={this.isFormValid() ? this.onSignup : null}
+                style={{
+                  marginTop: 15,
+                  marginBottom: 15
+                }}
               />
             </footer>
           </form>

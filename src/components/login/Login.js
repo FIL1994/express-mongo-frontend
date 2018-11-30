@@ -16,6 +16,7 @@ class Login extends Component {
 
   componentDidMount() {
     document.body.style.backgroundColor = "#525a76";
+    document.getElementById("username-field").focus();
   }
 
   onSubmit = async e => {
@@ -46,6 +47,7 @@ class Login extends Component {
           <form onSubmit={this.onSubmit}>
             Username
             <TextInput
+              id="username-field"
               name="username"
               onChange={e => {
                 this.setState({ username: e.target.value });
@@ -60,17 +62,19 @@ class Login extends Component {
               }}
               value={this.state.password}
             />
-            <Button
-              type="submit"
-              primary
-              label="Login"
-              onClick={this.onSubmit}
-              style={{
-                marginTop: 15,
-                marginBottom: 15,
-                width: "100%"
-              }}
-            />
+            <footer>
+              <Button
+                type="submit"
+                primary
+                fill
+                label="Login"
+                onClick={this.onSubmit}
+                style={{
+                  marginTop: 15,
+                  marginBottom: 15
+                }}
+              />
+            </footer>
           </form>
           {this.state.error && (
             <div style={{ color: "red" }}>{this.state.error}</div>
