@@ -58,7 +58,14 @@ class Signup extends Component {
 
   render() {
     return (
-      <Box flex full justify="center" align="center">
+      <Box
+        flex
+        justify="center"
+        align="center"
+        style={{
+          minHeight: "100vh"
+        }}
+      >
         <Box background="light-2" justify="center" align="center" pad="large">
           <Heading level="2" margin="small">
             New App

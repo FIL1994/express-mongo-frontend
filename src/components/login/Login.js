@@ -43,7 +43,15 @@ class Login extends Component {
 
   render() {
     return (
-      <Box id="login-form" flex full justify="center" align="center">
+      <Box
+        id="login-form"
+        flex
+        justify="center"
+        align="center"
+        style={{
+          minHeight: "100vh"
+        }}
+      >
         <Box background="light-2" justify="center" align="center" pad="large">
           <Heading level="2" margin="small">
             New App
