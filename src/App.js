@@ -13,15 +13,15 @@ const appName = "MyApp";
 class App extends Component {
   render() {
     return (
-      <Box flex full>
+      <Box flex full id="Site">
         <Auth>
-          <header colorIndex="neutral-4-t" pad="small" fixed={false}>
+          <Box tag="header" background="neutral-4" pad="small" fixed={false}>
             <Grommet style={{ marginRight: 15, padding: "2px 8px" }}>
               {appName}
             </Grommet>
             <HeaderNav />
-          </header>
-          <article flex pad="medium">
+          </Box>
+          <Box id="Site-content" as="article" flex pad="medium">
             <main>
               <Router>
                 <Dashboard path="dash" />
@@ -29,15 +29,16 @@ class App extends Component {
                 <Notes path="notes/*" />
               </Router>
             </main>
-          </article>
-          <footer
+          </Box>
+          <Box
+            as="footer"
             primary
-            colorIndex="neutral-4-t"
+            background="neutral-4"
             direction="column"
             pad="medium"
           >
             {appName}
-          </footer>
+          </Box>
         </Auth>
       </Box>
     );

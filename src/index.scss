@@ -4,9 +4,24 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+#Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#Site-content {
+  flex: 1;
+}
+
+header menu > a:not(:last-child) {
+  margin-right: 0.6rem;
 }
