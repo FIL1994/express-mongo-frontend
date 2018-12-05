@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
-import TextInput from "grommet/components/TextInput";
-import FormField from "grommet/components/FormField";
-import Button from "grommet/components/Button";
+import { TextInput, FormField, Button } from "grommet";
 import { Editor } from "slate-react";
 import { Value } from "slate";
 

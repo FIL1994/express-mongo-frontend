@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import Box from "grommet/components/Box";
-import Heading from "grommet/components/Heading";
-import TextInput from "grommet/components/TextInput";
-import FormField from "grommet/components/FormField";
-import FormFields from "grommet/components/FormFields";
-import Button from "grommet/components/Button";
-import Form from "grommet/components/Form";
-import Header from "grommet/components/Header";
-import Footer from "grommet/components/Footer";
+import { Box, TextInput, Button, Heading } from "grommet";
 import axios from "axios";
 import { injectState } from "freactal";
 import { navigate } from "@reach/router";
@@ -23,14 +15,13 @@ class Signup extends Component {
   };
 
   componentDidMount() {
-    document.getElementById("username-field").focus();
+    document.body.style.backgroundColor = "#525a76";
+    document.getElementById("username").focus();
   }
 
-  onChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
+  componentWillUnmount() {
+    document.body.style.backgroundColor = null;
+  }
 
   doPasswordsMatch = () => this.state.password === this.state.verifyPassword;
 
@@ -67,55 +58,63 @@ class Signup extends Component {
 
   render() {
     return (
-      <Box flex full colorIndex="neutral-4-t" justify="center" align="center">
-        <Box colorIndex="light-2" justify="center" align="center" pad="medium">
-          <Form onSubmit={this.onSignup} pad="medium">
-            <Box align="center">
-              <Header>
-                <Heading tag="h1" strong>
-                  New App
-                </Heading>
-              </Header>
-            </Box>
-            <FormFields pad={{ vertical: "medium" }}>
-              <FormField label="Username">
-                <TextInput
-                  id="username-field"
-                  style={{
-                    width: "100%"
-                  }}
-                  name="username"
-                  value={this.state.username}
-                  onDOMChange={this.onChange}
-                />
-              </FormField>
-              <FormField label="Password">
-                <TextInput
-                  type="password"
-                  name="password"
-                  value={this.state.password}
-                  onDOMChange={this.onChange}
-                />
-              </FormField>
-              <FormField label="Verify Password">
-                <TextInput
-                  type="password"
-                  name="verifyPassword"
-                  value={this.state.verifyPassword}
-                  onDOMChange={this.onChange}
-                />
-              </FormField>
-            </FormFields>
-            <Footer pad={{ vertical: "medium" }}>
+      <Box
+        flex
+        justify="center"
+        align="center"
+        style={{
+          minHeight: "100vh"
+        }}
+      >
+        <Box background="light-2" justify="center" align="center" pad="large">
+          <Heading level="2" margin="small">
+            New App
+          </Heading>
+          <form onSubmit={this.onSignup}>
+            <div>
+              <label htmlFor="username">Username</label>
+              <TextInput
+                id="username"
+                name="username"
+                value={this.state.username}
+                onChange={e => {
+                  this.setState({ username: e.target.value });
+                }}
+              />
+              <label htmlFor="password">Password</label>
+              <TextInput
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={e => {
+                  this.setState({ password: e.target.value });
+                }}
+              />
+              <label htmlFor="verifyPassword">Verify Password</label>
+              <TextInput
+                id="verifyPassword"
+                type="password"
+                name="verifyPassword"
+                value={this.state.verifyPassword}
+                onChange={e => {
+                  this.setState({ verifyPassword: e.target.value });
+                }}
+              />
+            </div>
+            <footer>
               <Button
                 type="button"
                 primary
                 fill
                 label="Signup"
                 onClick={this.isFormValid() ? this.onSignup : null}
+                style={{
+                  marginTop: 15,
+                  marginBottom: 15
+                }}
               />
-            </Footer>
-          </Form>
+            </footer>
+          </form>
           <Link className="form-link" to="/">
             Already have an account? Login here.
           </Link>

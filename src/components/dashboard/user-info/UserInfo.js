@@ -1,6 +1,5 @@
 import React from "react";
 import { injectState } from "freactal";
-import Section from "grommet/components/Section";
 
 import { parseDate } from "../../../helpers/dates";
 
@@ -8,7 +7,7 @@ const UserInfo = props => {
   const { user } = props.state;
 
   return (
-    <Section>
+    <section>
       {user.username}
       <br />
       {user.fullName}
@@ -18,7 +17,7 @@ const UserInfo = props => {
       CREATED AT: {user.createdAt}
       <br />
       {user.createdAt && parseDate(user.createdAt).toLocaleString()}
-    </Section>
+    </section>
   );
 };
 

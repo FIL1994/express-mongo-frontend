@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Box from "grommet/components/Box";
-import LoginForm from "grommet/components/LoginForm";
+import { Box, TextInput, Button, Heading } from "grommet";
 import Link from "../common/Link";
 import axios from "axios";
 import { injectState } from "freactal";
@@ -10,10 +9,24 @@ import "./login.scss";
 
 class Login extends Component {
   state = {
+    username: "",
+    password: "",
     error: ""
   };
 
-  onSubmit = async ({ username, password, rememberMe }) => {
+  componentDidMount() {
+    document.body.style.backgroundColor = "#525a76";
+    document.getElementById("username").focus();
+  }
+
+  componentWillUnmount() {
+    document.body.style.backgroundColor = null;
+  }
+
+  onSubmit = async e => {
+    e.preventDefault();
+    const { username, password } = this.state;
+
     try {
       const res = await axios.post(process.env.REACT_APP_API_URL + "login", {
         username,
@@ -33,19 +46,52 @@ class Login extends Component {
       <Box
         id="login-form"
         flex
-        full
-        colorIndex="neutral-4-t"
         justify="center"
         align="center"
+        style={{
+          minHeight: "100vh"
+        }}
       >
-        <Box colorIndex="light-2" justify="center" align="center" pad="medium">
-          <LoginForm
-            title="New App"
-            textAlign="left"
-            usernameType="text"
-            onSubmit={this.onSubmit}
-            errors={[this.state.error]}
-          />
+        <Box background="light-2" justify="center" align="center" pad="large">
+          <Heading level="2" margin="small">
+            New App
+          </Heading>
+          <form onSubmit={this.onSubmit}>
+            <label htmlFor="username">Username</label>
+            <TextInput
+              id="username"
+              name="username"
+              onChange={e => {
+                this.setState({ username: e.target.value });
+              }}
+              value={this.state.username}
+            />
+            <label htmlFor="password">Password</label>
+            <TextInput
+              type="password"
+              name="password"
+              onChange={e => {
+                this.setState({ password: e.target.value });
+              }}
+              value={this.state.password}
+            />
+            <footer>
+              <Button
+                type="submit"
+                primary
+                fill
+                label="Login"
+                onClick={this.onSubmit}
+                style={{
+                  marginTop: 15,
+                  marginBottom: 15
+                }}
+              />
+            </footer>
+          </form>
+          {this.state.error && (
+            <div style={{ color: "red" }}>{this.state.error}</div>
+          )}
           <Link className="form-link" to="/signup">
             Don't have an account? Signup here.
           </Link>

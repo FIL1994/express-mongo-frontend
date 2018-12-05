@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
-import Card from "grommet/components/Card";
-import Columns from "grommet/components/Columns";
 import Avatar from "react-avatar";
 import { formatDistance } from "date-fns/esm";
 
 import { parseDate } from "../../helpers/dates";
+
+const Card = props => <div>{props.children}</div>;
 
 class PostsList extends Component {
   state = {
@@ -39,7 +39,7 @@ class PostsList extends Component {
       <Fragment>
         <button onClick={() => this.getPosts(true)}>Refresh</button>
         {this.state.posts.length > 0 && (
-          <Columns maxCount={1} justify="start" responsive>
+          <div>
             {this.state.posts.map(post => (
               <Card
                 style={{
@@ -67,7 +67,7 @@ class PostsList extends Component {
                 </div>
               </Card>
             ))}
-          </Columns>
+          </div>
         )}
       </Fragment>
     );

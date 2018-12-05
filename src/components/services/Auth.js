@@ -7,6 +7,10 @@ class Auth extends Component {
     console.warn("Error from Auth", error, info);
   }
 
+  static getDerivedStateFromError(error) {
+    console.log("Error from auth", error);
+  }
+
   render() {
     const { isInitialized, token } = this.props.state;
 
