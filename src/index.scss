@@ -1,7 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:400,600");
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    "Ubuntu", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
@@ -22,6 +23,10 @@ code {
   flex: 1;
 }
 
-header menu > a:not(:last-child) {
-  margin-right: 0.6rem;
+header menu > a {
+  color: white;
+
+  &:not(:last-child) {
+    margin-right: 0.6rem;
+  }
 }
