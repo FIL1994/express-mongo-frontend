@@ -19,6 +19,10 @@ class Signup extends Component {
     document.getElementById("username-field").focus();
   }
 
+  componentWillUnmount() {
+    document.body.style.backgroundColor = null;
+  }
+
   doPasswordsMatch = () => this.state.password === this.state.verifyPassword;
 
   isFormValid = () => {

@@ -19,6 +19,10 @@ class Login extends Component {
     document.getElementById("username-field").focus();
   }
 
+  componentWillUnmount() {
+    document.body.style.backgroundColor = null;
+  }
+
   onSubmit = async e => {
     e.preventDefault();
     const { username, password } = this.state;
@@ -56,6 +60,7 @@ class Login extends Component {
             />
             Password
             <TextInput
+              type="password"
               name="password"
               onChange={e => {
                 this.setState({ password: e.target.value });
