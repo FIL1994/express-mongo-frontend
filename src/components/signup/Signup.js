@@ -16,7 +16,7 @@ class Signup extends Component {
 
   componentDidMount() {
     document.body.style.backgroundColor = "#525a76";
-    document.getElementById("username-field").focus();
+    document.getElementById("username").focus();
   }
 
   componentWillUnmount() {
@@ -65,16 +65,16 @@ class Signup extends Component {
           </Heading>
           <form onSubmit={this.onSignup}>
             <div>
-              Username
+              <label htmlFor="username">Username</label>
               <TextInput
-                id="username-field"
+                id="username"
                 name="username"
                 value={this.state.username}
                 onChange={e => {
                   this.setState({ username: e.target.value });
                 }}
               />
-              Password
+              <label htmlFor="password">Password</label>
               <TextInput
                 type="password"
                 name="password"
@@ -83,8 +83,9 @@ class Signup extends Component {
                   this.setState({ password: e.target.value });
                 }}
               />
-              Verify Password
+              <label htmlFor="verifyPassword">Verify Password</label>
               <TextInput
+                id="verifyPassword"
                 type="password"
                 name="verifyPassword"
                 value={this.state.verifyPassword}
